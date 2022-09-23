@@ -1,10 +1,10 @@
-from flask import session
+#import alternative sessions module from flask import session
 
 # Variables
-site_title = 'HuClone'
+site_title = 'huclu'
 
 # functions
-def nav_render(data = {}):
+def nav_render(request, data = {}):
 	'''
 	required data
 	session_data = {
@@ -14,6 +14,7 @@ def nav_render(data = {}):
 		'search_string': search_string,
 	}
 	'''
+	session = request.session
 	logged_in_links = ''
 	login_logout = ''
 	user_name = ''

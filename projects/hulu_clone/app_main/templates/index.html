@@ -4,13 +4,23 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Document</title>
+		<title>HuClone</title>
 
 		{% load static %}
 		<link rel="stylesheet" href="{% static 'bootstrap/bootstrap.css.map' %}" />
-		<script src="{% static 'bootstrap/bootstrap.bundle.js' %}"></script>
+		<link rel="stylesheet" href="{% static 'bootstrap/bootstrap.css' %}" />
 	</head>
 	<body>
-		<p>new template</p>
+		<!-- Nav -->
+		{{nav | safe}}
+
+		<p>array_1: <em>{{ array_1 }}</em></p>
+		<p>array_1[0]: <em>{{ array_1.0 }}</em></p>
+		<p>array_1[1]: <em>{{ array_1.1 }}</em></p>
+		<p>array_1[2]: <em>{{ array_1.2 }}</em></p>
+
+		<footer>
+			<script src="{% static 'bootstrap/bootstrap.bundle.js' %}"></script>
+		</footer>
 	</body>
 </html>
