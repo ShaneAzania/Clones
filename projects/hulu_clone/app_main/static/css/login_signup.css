@@ -25,14 +25,18 @@ body#login_signup {
 }
 
 /* login_signup_form */
-.login_signup_form {
+#login_signup_form {
 	display: flex;
 	flex-direction: column;
+	justify-content: center;
 
 	position: relative;
-	width: 50%;
+	width: 27em;
 	margin: 0 auto;
 }
 label {
 	color: var(--grey2);
+}
+#login_signup_form .title {
+	margin-bottom: 2em;
 }

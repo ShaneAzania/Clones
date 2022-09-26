@@ -16,17 +16,38 @@
 			<!-- Nav -->
 			{{nav | safe}}
 
-			<!-- Hero Messages -->
+			<!-- login_signup form -->
 			<div class="row">
-				<form id="login_signup_form" class="col-12 col-md-8 col-lg-4 mx-auto bg-white" action="{% url 'huclu:login_signup' %}" method="post">
-					<div class="mb-3">
-						<label for="" class="form-label">Email</label>
-						<input type="email" class="form-control" name="email" id="" aria-describedby="emailHelpId" placeholder="abc@mail.com" />
+				<form
+					id="login_signup_form"
+					class="col-sm-12 col-md-8 col-lg-4 mx-auto bg-white p-5"
+					action="{% url 'huclu:login_signup' %}"
+					method="post"
+				>
+					<h4 class="title">Log In</h4>
+					<div class="mb-4">
+						<label for="" class="form-label text-secondary">Email</label>
+						<input
+							type="email"
+							class="form-control form-control-lg rounded-1 border-secondary"
+							name="email"
+							id=""
+							aria-describedby="emailHelpId"
+							placeholder="abc@mail.com"
+						/>
 					</div>
-					<div class="mb-3">
-						<label for="" class="form-label">Password</label>
-						<input type="password" class="form-control" name="password" id="" placeholder="" />
+					<div class="mb-4">
+						<label for="" class="form-label text-secondary">Password</label>
+						<input type="password" class="form-control form-control-lg rounded-1 border-secondary" name="password" id="" placeholder="" />
 					</div>
+					<small id="helpId" class="form-text text-muted my-4"
+						><a class="text-decoration-none" href="#">Forgot your email or password?</a></small
+					>
+					<button class="btn bg-gray2 color-white mt-1 mb-4" type="submit">Log In</button>
+					<small id="helpId" class="form-text text-muted mt-5 text-center">Don't have an account? </small>
+					<small id="helpId" class="form-text text-muted text-center"
+						><a class="text-decoration-none" href="#">Start your free trial</a></small
+					>
 				</form>
 			</div>
 		</div>

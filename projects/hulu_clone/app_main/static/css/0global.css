@@ -5,7 +5,7 @@
 	--grey2: #acacac;
 	--carbon: #0b0c0f;
 	--white: #fff;
-	--offwhite: #f7f7f9
+	--offwhite: #f7f7f9;
 }
 * {
 	box-sizing: border-box !important;
@@ -17,6 +17,9 @@
 }
 .bg-carbon {
 	background-color: var(--carbon);
+}
+.bg-gray2 {
+	background-color: var(--grey2);
 }
 .background-overlay {
 	height: 100%;
@@ -56,6 +59,11 @@ h7 {
 .btn.bg-key:hover {
 	background-color: var(--key);
 	border-color: var(--key);
+	opacity: 0.7;
+}
+.btn.bg-gray2:hover {
+	background-color: var(--grey);
+	border-color: var(--grey);
 	opacity: 0.7;
 }
 
