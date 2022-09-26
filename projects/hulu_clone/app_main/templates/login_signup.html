@@ -11,18 +11,23 @@
 		<link rel="stylesheet" href="{% static 'bootstrap/bootstrap.css' %}" />
 		<link rel="stylesheet" href="{% static 'css/0main.css' %}" />
 	</head>
-	<body>
-		<div id="hero" class="container-fluid">
+	<body id="login_signup">
+		<div id="" class="container-fluid">
 			<!-- Nav -->
 			{{nav | safe}}
 
 			<!-- Hero Messages -->
-			<div class="hero-message-box">
-				<h7 class="color-key">BUNDLE WITH ANY HUCLU PLAN & SAVE</h7>
-				<img src="{% static 'media/img/logoset_hulu_disneyplus_espn_1.png' %}" alt="huclu disney plus and espn" srcset="" />
-				<h3 class="color-white">Get endless entertainment, live sports, and the shows and movies you love.</h3>
-				<a href="#" class="action btn bg-key btn-lg">GET THE DISNEY BUNDLE</a>
-				<a href="{% url 'huclu:login_signup' %}" class="color-white">Sign up</a>
+			<div class="row">
+				<form id="login_signup_form" class="col-12 col-md-8 col-lg-4 mx-auto bg-white" action="{% url 'huclu:login_signup' %}" method="post">
+					<div class="mb-3">
+						<label for="" class="form-label">Email</label>
+						<input type="email" class="form-control" name="email" id="" aria-describedby="emailHelpId" placeholder="abc@mail.com" />
+					</div>
+					<div class="mb-3">
+						<label for="" class="form-label">Password</label>
+						<input type="password" class="form-control" name="password" id="" placeholder="" />
+					</div>
+				</form>
 			</div>
 		</div>
 

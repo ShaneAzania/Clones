@@ -33,7 +33,7 @@ def nav_render(request, data = {}):
 									'Add Event'\
 								'</a>'\
 							'</li>'\
-								'<li class="nav-item">'\
+							'<li class="nav-item">'\
 								'<a class="nav-link" href="/event_search">'\
 									'Search'\
 								'</a>'\
@@ -52,7 +52,7 @@ def nav_render(request, data = {}):
 	if "search_string" in data:
 		search_string = data["search_string"]
 
-	nav='<nav class="navbar navbar-expand-lg bg-light mb-3">'\
+	nav='<nav class="navbar navbar-expand-lg mb-3">'\
 			'<div class="container-fluid">'\
 				f'<a class="navbar-brand" href="/">{site_title}</a>'\
 				'<button class="navbar-toggler mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">'\

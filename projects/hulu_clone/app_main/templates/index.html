@@ -9,15 +9,59 @@
 		{% load static %}
 		<link rel="stylesheet" href="{% static 'bootstrap/bootstrap.css.map' %}" />
 		<link rel="stylesheet" href="{% static 'bootstrap/bootstrap.css' %}" />
+		<link rel="stylesheet" href="{% static 'css/0main.css' %}" />
 	</head>
 	<body>
-		<!-- Nav -->
-		{{nav | safe}}
+		<div id="hero" class="container-fluid">
+			<!-- Nav -->
+			{{nav | safe}}
 
-		<p>array_1: <em>{{ array_1 }}</em></p>
-		<p>array_1[0]: <em>{{ array_1.0 }}</em></p>
-		<p>array_1[1]: <em>{{ array_1.1 }}</em></p>
-		<p>array_1[2]: <em>{{ array_1.2 }}</em></p>
+			<!-- Hero Messages -->
+			<div class="hero-message-box">
+				<h7 class="color-key">BUNDLE WITH ANY HUCLU PLAN & SAVE</h7>
+				<img src="{% static 'media/img/logoset_hulu_disneyplus_espn_1.png' %}" alt="huclu disney plus and espn" srcset="" />
+				<h3 class="color-white">Get endless entertainment, live sports, and the shows and movies you love.</h3>
+				<a href="#" class="action btn bg-key btn-lg">GET THE DISNEY BUNDLE</a>
+				<a href="{% url 'huclu:login_signup' %}" class="color-white">Sign up</a>
+			</div>
+		</div>
+
+		<div id="included-in-all-plans" class="container-fluid bg-carbon color-white">
+			<div class="included-in-all-plans-message-box">
+				<h6 class="color-key mb-4">INCLUDED IN ALL PLANS</h6>
+				<h1 class="mb-4">All The TV You Love</h1>
+				<h5 class="mb-5">
+					Stream full seasons of exclusive series, current-season episodes, hit movies, Huclu Originals, kids shows, and more.
+				</h5>
+			</div>
+
+			<div class="samples">
+				<div class="sample" style="background-image: url('{% static 'media/img/sample_1.jpeg' %}'); background-size: cover">
+					<div class="background-overlay">
+						<h6 class="descript">Past & Current Seasons</h6>
+						<h4 class="category">TV Shows</h4>
+					</div>
+				</div>
+				<div class="sample" style="background-image: url('{% static 'media/img/sample_2.jpeg' %}'); background-size: cover">
+					<div class="background-overlay">
+						<h6 class="descript">New & Classic</h6>
+						<h4 class="category">Movies</h4>
+					</div>
+				</div>
+				<div class="sample" style="background-image: url('{% static 'media/img/sample_3.jpeg' %}'); background-size: cover">
+					<div class="background-overlay">
+						<h6 class="descript">Groundbreaking</h6>
+						<h4 class="category">Huclu Originals</h4>
+					</div>
+				</div>
+				<div class="sample" style="background-image: url('{% static 'media/img/sample_4.jpeg' %}'); background-size: cover">
+					<div class="background-overlay">
+						<h6 class="descript">Add-on</h6>
+						<h4 class="category">Premiums</h4>
+					</div>
+				</div>
+			</div>
+		</div>
 
 		<footer>
 			<script src="{% static 'bootstrap/bootstrap.bundle.js' %}"></script>

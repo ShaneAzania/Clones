@@ -1,0 +1,38 @@
+body#login_signup {
+	background-color: var(--offwhite);
+}
+
+/* nav */
+#login_signup .navbar {
+	background-color: var(--white) !important;
+	background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0) 100%);
+}
+#login_signup .navbar > .container-fluid {
+	padding-left: 2em;
+	padding-right: 2em;
+}
+#login_signup .navbar-brand {
+	color: var(--black);
+	font-weight: bolder;
+	font-size: 1.7em;
+}
+#login_signup .navbar-brand:hover {
+	color: var(--key);
+}
+#login_signup .nav-link {
+	display: none;
+	color: var(--grey);
+}
+
+/* login_signup_form */
+.login_signup_form {
+	display: flex;
+	flex-direction: column;
+
+	position: relative;
+	width: 50%;
+	margin: 0 auto;
+}
+label {
+	color: var(--grey2);
+}

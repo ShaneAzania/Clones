@@ -1,0 +1,71 @@
+/* hero section */
+#hero {
+	height: 85vh;
+	padding: 0px !important;
+	background-image: url("../media/img/bg_1.jpeg");
+	background-image: linear-gradient(0deg, transparent 60%, rgba(0, 0, 0, 0.2) 90%, rgba(0, 0, 0, 0.4) 100%), url("../media/img/bg_1.jpeg");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.hero-message-box,
+.included-in-all-plans-message-box {
+	display: flex;
+	flex-direction: column;
+
+	position: relative;
+	width: 50%;
+	margin: 0 auto;
+}
+.hero-message-box * {
+	text-align: center !important;
+}
+.hero-message-box > * {
+	margin-bottom: 1em;
+}
+.hero-message-box img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 90%;
+}
+.hero-message-box h6 {
+	display: block;
+	width: 50%;
+}
+.hero-message-box .action {
+	font-size: 0.9em;
+	font-weight: bold;
+}
+
+/* included-in-all-plans */
+#included-in-all-plans {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	padding-top: 5em;
+	min-height: 100vh;
+	text-align: center;
+}
+.included-in-all-plans-message-box h5 {
+	font-weight: lighter;
+	font-size: 1em;
+}
+.samples {
+	display: flex;
+	justify-content: space-between;
+	justify-content: center;
+
+	position: relative;
+	width: 90%;
+	margin: 0 auto;
+}
+.sample {
+	position: inherit;
+	height: 27em;
+	width: 18em;
+	margin: 0 0.8em;
+
+	text-align: start;
+}
+

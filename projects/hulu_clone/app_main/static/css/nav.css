@@ -1,0 +1,18 @@
+.navbar {
+	background-color: rgba(0, 0, 0, 0) !important;
+	background-image: linear-gradient(180deg, rgba(0, 0, 0, 1) 10%, rgba(0, 0, 0, 0) 100%);
+	width: 100%;
+	padding: 0.5em 2em;
+}
+.navbar-brand {
+	color: var(--key);
+	font-weight: bolder;
+	font-size: 1.7em;
+	transition: all ease 0.1s;
+}
+.navbar-brand:hover {
+	color: var(--key);
+}
+.nav-link {
+	color: var(--grey);
+}
