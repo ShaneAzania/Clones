@@ -16,15 +16,12 @@
 			<!-- Nav -->
 			{{nav | safe}}
 
-			<!-- login_signup form -->
+			<!-- login_signup_form -->
 			<div class="row">
-				<form
-					id="login_signup_form"
-					class="col-sm-12 col-md-8 col-lg-4 mx-auto bg-white p-5"
-					action="{% url 'huclu:login_signup' %}"
-					method="post"
-				>
+				<form id="login_form" class="mx-auto mb-3 bg-white p-5" action="{% url 'huclu:login_signup_form' %}" method="post">
+					{% csrf_token %}
 					<h4 class="title">Log In</h4>
+					<input type="hidden" name="which_form" value="login" />
 					<div class="mb-4">
 						<label for="" class="form-label text-secondary">Email</label>
 						<input
@@ -33,7 +30,6 @@
 							name="email"
 							id=""
 							aria-describedby="emailHelpId"
-							placeholder="abc@mail.com"
 						/>
 					</div>
 					<div class="mb-4">
@@ -48,6 +44,41 @@
 					<small id="helpId" class="form-text text-muted text-center"
 						><a class="text-decoration-none" href="#">Start your free trial</a></small
 					>
+				</form>
+				<form id="signup_form" class="mx-auto bg-white p-5" action="{% url 'huclu:login_signup_form' %}" method="post">
+					{% csrf_token %}
+					<!-- error messages -->
+					{% if messages %}
+					<ul class="messages">
+						{% for message in messages %}
+						<li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+						{% endfor %}
+					</ul>
+					{% endif %}
+					<!-- form data -->
+					<h4 class="title">Sign Up</h4>
+					<input type="hidden" name="which_form" value="signup" />
+					<div class="mb-4">
+						<label for="" class="form-label text-secondary">Email</label>
+						<input type="email" class="form-control form-control-lg rounded-1 border-secondary" name="email" autocomplete="off" />
+					</div>
+					<div class="mb-4">
+						<label for="" class="form-label text-secondary">First Name</label>
+						<input type="text" class="form-control form-control-lg rounded-1 border-secondary" name="first_name" autocomplete="off" />
+					</div>
+					<div class="mb-4">
+						<label for="" class="form-label text-secondary">Last Name</label>
+						<input type="text" class="form-control form-control-lg rounded-1 border-secondary" name="last_name" autocomplete="off" />
+					</div>
+					<div class="mb-4">
+						<label for="" class="form-label text-secondary">Password</label>
+						<input type="password" class="form-control form-control-lg rounded-1 border-secondary" name="password" autocomplete="off" />
+					</div>
+					<div class="mb-4">
+						<label for="" class="form-label text-secondary">Re-enter password</label>
+						<input type="password" class="form-control form-control-lg rounded-1 border-secondary" name="password2" autocomplete="off" />
+					</div>
+					<button class="btn bg-gray2 color-white mt-1 mb-4" type="submit">Sign Up</button>
 				</form>
 			</div>
 		</div>

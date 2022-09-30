@@ -19,13 +19,14 @@ body#login_signup {
 #login_signup .navbar-brand:hover {
 	color: var(--key);
 }
-#login_signup .nav-link {
+#login_signup .nav-link,
+#login_signup .navbar-toggler {
 	display: none;
-	color: var(--grey);
 }
 
 /* login_signup_form */
-#login_signup_form {
+#login_form,
+#signup_form {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -37,6 +38,7 @@ body#login_signup {
 label {
 	color: var(--grey2);
 }
-#login_signup_form .title {
+#login_form .title,
+#signup_form .title {
 	margin-bottom: 2em;
 }
