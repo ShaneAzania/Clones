@@ -16,11 +16,15 @@ def index(request):
     return render(request, 'index.html', context)
 
 def login_signup(request):
+    if 'user' in request.session:
+        return redirect("/")
     context = {
         'nav' : nav_render(request),
     }
     return render(request, 'login_signup.html', context)
 def login_signup_form(request):
+    if 'user' in request.session:
+        return redirect("/")
     post = request.POST
     which_form = post['which_form']
     # Login form
@@ -46,8 +50,8 @@ def login_signup_form(request):
         }
 
 
-        
-        return HttpResponse('User Logged In')
+        # ceate user dash and redirect to it from here
+        return redirect("/")
     # Signup form
     elif which_form == 'signup':
         # validate form data
@@ -70,7 +74,8 @@ def login_signup_form(request):
                 'first_name' : current_user.first_name,
                 'last_name' : current_user.last_name,
             }
-            return HttpResponse('User Created' + request.session['user']['email'])
+            # ceate user dash and redirect to it from here
+            return redirect("/")
         elif errors:
             # load errors into messages
             for key, value in errors.items():
@@ -82,6 +87,8 @@ def logout(request):
     return redirect("/login_signup")
 
 def user_dash(request):
+    if 'user' not in request.session:
+        return redirect("/")
     context = {
         'nav' : nav_render(request),
     }
