@@ -25,22 +25,34 @@ def login_signup_form(request):
     which_form = post['which_form']
     # Login form
     if which_form == 'login':
-        email = post['email']
-        password = post['password']
-        # bcrypt.checkpw('test'.encode(), hashed_PW_from_DB.encode())
+        # check if email is registered
+        existing_user = User.objects.filter(email = post['email'])
+        if len(existing_user) < 1:
+            messages.error(request, 'Invalid email.')
+            return redirect("/login_signup")
+        
+        # check if form password matches db password 
+        if not bcrypt.checkpw(post['password'].encode(), existing_user[0].password.encode()):
+            messages.error(request, 'Invalid password.')
+            return redirect("/login_signup")
+        
+        # if email and password are valid, save user to session
+        current_user = existing_user[0]
+        request.session['user'] = {
+            'id' : current_user.id,
+            'email' : current_user.email,
+            'first_name' : current_user.first_name,
+            'last_name' : current_user.last_name,
+        }
 
-        print()
-        print('Login:')
-        print()
+
+        
         return HttpResponse('User Logged In')
     # Signup form
     elif which_form == 'signup':
         # validate form data
         errors = User.objects.signup_validator(post)
         if not errors:
-            print()
-            print('Signup: Valid')
-            print()
             # check if email is already registered
             existing_user = User.objects.filter(email = post['email'])
             if len(existing_user) > 0:

@@ -10,8 +10,11 @@
 	font-size: 1.7em;
 	transition: all ease 0.1s;
 }
-.navbar-brand:hover {
+.navbar-toggler-icon {
 	color: var(--key);
+}
+.navbar-brand:hover {
+	color: var(--white);
 }
 .nav-link {
 	color: var(--grey);
