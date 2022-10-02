@@ -5,38 +5,65 @@ site_title = 'huclu'
 
 # functions
 def nav_render(request, data = {}):
-	'''
-	required data
-	session_data = {
-		'user_id': session["user_id"],
-		'user_name': session["user_name"]
-	data = {
-		'search_string': search_string,
-	}
-	'''
 	session = request.session
 	user = ''
 	logged_in_links = ''
 	login_logout = ''
 	user_name = ''
+	account_dropdown = ''
 	search_string = ''
 	# display Dash and Images links
 	if 'user' in session:
 		user = session['user']
 		logged_in_links = ''\
-							'<li class="nav-item">'\
-								'<a class="nav-link" href="/user_dash">'\
-									'Dash'\
+							'<li class="nav-item mx-4">'\
+								'<a class="nav-link" href="/">'\
+									'Home'\
 								'</a>'\
 							'</li>'\
-							'<!li class="nav-item">'\
-								f'<a class="nav-link" href="/user_account/{user["id"]}">'\
-									'Account'\
+							'<li class="nav-item mx-4">'\
+								'<a class="nav-link" href="/">'\
+									'TV'\
 								'</a>'\
-							'</li>'
+							'</li>'\
+							'<li class="nav-item mx-4">'\
+								'<a class="nav-link" href="/">'\
+									'Movies'\
+								'</a>'\
+							'</li>'\
+							'<li class="nav-item mx-4">'\
+								'<a class="nav-link" href="/">'\
+									'News'\
+								'</a>'\
+							'</li>'\
+							'<li class="nav-item mx-4">'\
+								'<a class="nav-link" href="/">'\
+									'My Stuff'\
+								'</a>'\
+							'</li>'\
+							'<li class="nav-item mx-4">'\
+								'<a class="nav-link" href="/">'\
+									'Hubs'\
+								'</a>'\
+							'</li>'\
 							
-		login_logout = '<a class="nav-link" href="/logout">Logout</a>'
-		user_name = user['email']
+							
+		login_logout = ''
+		email = user['email']
+		account_dropdown = ''\
+			'<div class="dropdown">'\
+				'<a class="dropdown-toggle_vii" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">'\
+					f'{user["first_name"][0:2].upper()}'\
+				'</a>'\
+				'<ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">'\
+					'<li><a class="dropdown-item" href="#">Account</a></li>'\
+					'<li><a class="dropdown-item" href="#">Help Center</a></li>'\
+					'<li><a class="dropdown-item" href="/logout">Logout</a></li>'\
+					'<li><hr class="dropdown-divider"></li>'\
+					f'<li><p class="dropdown-item">{email}</p></li>'\
+				'</ul>'\
+			'</div>'
+
 	else:
 		login_logout = '<a class="nav-link" href="/login_signup">Login</a>'
 
@@ -51,28 +78,15 @@ def nav_render(request, data = {}):
 				'</button>'\
 				'<div class="collapse navbar-collapse" id="navbarNav">'\
 					'<ul class="navbar-nav ms-auto">'\
-						'<!-- search  -->'\
-						'<!--li class="nav-item me-2">'\
-							'<form action="/images_search" method="post">'\
-								'<div class="input-group mt-1">'\
-									f'<input name="search" type="text" class="form-control" placeholder="Search" value="{search_string}">'\
-								'</div>'\
-							'</form>'\
-						'</li-->'\
-						'<li class="nav-item">'\
-							'<!--a class="nav-link" href="/">Home</a-->'\
-						'</li>'\
 						'<!-- Nav links that show up when logged in as a user -->'\
 						f'{logged_in_links}'\
 						'<li class="nav-item">'\
 							f'{login_logout}'\
 						'</li>'\
-						'<li class="nav-item">'\
-							'<p class="nav-link pb-0">'\
-								f'{user_name}'\
-							'</p>'\
-						'</li>'\
 					'</ul>'\
+				'</div>'\
+				'<div class="account">'\
+					f'{account_dropdown}'\
 				'</div>'\
 			'</div>'\
 		'</nav>'

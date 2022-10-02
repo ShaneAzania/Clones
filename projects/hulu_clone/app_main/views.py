@@ -6,10 +6,13 @@ import bcrypt
 
 from app_main.static.modules.nav import nav_render
 from .models import User
+from .static.modules.previews import previews_render
 
 
 
 def index(request):
+    if 'user' in request.session:
+        return redirect("/dash")
     context = {
         'nav' : nav_render(request),
     }
@@ -81,15 +84,31 @@ def login_signup_form(request):
             for key, value in errors.items():
                 messages.error(request, value)
             return redirect("/login_signup")
-
 def logout(request):
     del request.session['user']
     return redirect("/login_signup")
 
-def user_dash(request):
+def dash(request):
     if 'user' not in request.session:
         return redirect("/")
+    data = {
+        'previews': [
+            {
+                'preview_title': 'TV for You',
+                'preview_items': ['', '', '', '','','']
+            },
+            {
+                'preview_title': 'Movies for You',
+                'preview_items': ['', '', '', '','','']
+            },
+            {
+                'preview_title': 'Newly Added TV',
+                'preview_items': ['', '', '', '','','']
+            }
+        ],
+    }
     context = {
         'nav' : nav_render(request),
+        'previews' : previews_render(request, data)
     }
-    return render(request, 'user_dash.html', context)
+    return render(request, 'dash.html', context)

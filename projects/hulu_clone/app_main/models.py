@@ -37,8 +37,11 @@ class User(models.Model):
     objects = User_Manager()
 class Media(models.Model):
     title = models.CharField(max_length=255)
+    description = models.CharField(max_length=255, null=True)
     genre = models.CharField(max_length=255)
     file_location = models.CharField(max_length=255)
-    watcher = models.ForeignKey(User, related_name="watchlist", on_delete = models.CASCADE)
+    banner = models.CharField(max_length=255, null=True)
+    thumbnail = models.CharField(max_length=255, null=True)
+    watcher = models.ForeignKey(User, related_name="watchlist", on_delete = models.CASCADE, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

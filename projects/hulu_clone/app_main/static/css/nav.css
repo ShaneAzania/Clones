@@ -1,3 +1,7 @@
+a {
+	text-decoration: none;
+}
+
 .navbar {
 	background-color: rgba(0, 0, 0, 0) !important;
 	background-image: linear-gradient(180deg, rgba(0, 0, 0, 1) 10%, rgba(0, 0, 0, 0) 100%);
@@ -10,12 +14,35 @@
 	font-size: 1.7em;
 	transition: all ease 0.1s;
 }
-.navbar-toggler-icon {
-	color: var(--key);
+.navbar-toggler {
+	background-color: var(--key);
 }
 .navbar-brand:hover {
 	color: var(--white);
 }
 .nav-link {
 	color: var(--grey);
+}
+
+nav .dropdown-toggle_vii {
+	color: white;
+	font-size: 1em !important;
+
+	border: 2px solid white;
+	border-radius: 50%;
+	padding: 0.3em;
+}
+
+.nav-link:hover,
+nav .dropdown-toggle_vii:hover {
+	color: var(--key);
+	border-color: var(--key);
+}
+nav .dropdown-menu {
+	right: 0 !important;
+	left: auto !important;
+
+	/* width: 20em; */
+
+	background-color: var(--carbon);
 }
