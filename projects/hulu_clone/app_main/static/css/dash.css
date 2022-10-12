@@ -1,4 +1,7 @@
 /* hero section */
+#dash {
+	background-color: var(--carbon);
+}
 #dash #hero {
 	height: 75vh;
 	padding: 0px !important;
@@ -29,6 +32,7 @@
 /* preview */
 .previews {
 	margin-bottom: 3em;
+	color: white;
 }
 .previews ul {
 	list-style: none;
@@ -79,4 +83,9 @@ li.preview-item {
 }
 .preview-item:hover .preview-overlay {
 	opacity: 1;
+}
+
+.previews .media-title {
+	position: unset;
+	position: absolute;
 }
